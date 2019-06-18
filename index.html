@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #game {
+            margin: 0 auto;
+            width: 1366px;
+            height: 768px;
+        }
+        .first-page,
+        .result-page1,
+        .result-page2 {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            margin-left: -683px;
+            width: 1366px;
+            height: 768px;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .first-page img {
+            display: block;
+            margin: 50px auto;
+        }
+        .result-page1 img {
+            display: block;
+            margin: 50px auto;
+        }
+        .result-page2 img {
+            display: block;
+            margin: 50px auto;
+        }
+        #btn-start {
+            position: absolute;
+            top: 627px;
+            left: 50%;
+            margin-left: -78px;
+            width: 190px;
+            height: 78px;
+            cursor: pointer;
+        }
+        .result-page1,
+        .result-page2 {
+            display: none;
+        }
+        #btn-replay1,
+        #btn-replay2 {
+            position: absolute;
+            top: 310px;
+            left: 50%;
+            margin-left: -85px;
+            width: 190px;
+            height: 78px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="game"></div>
+    <div class="first-page">
+        <img src="./assets/first.png">
+        <div id="btn-start"></div>
+    </div>
+    <div class="result-page1">
+        <img src="./assets/1p.png">
+        <div id="btn-replay1"></div>
+    </div>
+    <div class="result-page2">
+        <img src="./assets/2p.png">
+        <div id="btn-replay2"></div>
+    </div>
+    <audio src="./assets/music.wav" autoplay loop></audio>
+    <script type="text/javascript">
+        (function() {
+            var btn = document.getElementById('btn-start');
+            var page = document.getElementsByClassName('first-page')[0];
+            var replay1 = document.getElementById('btn-replay1');
+            var replay2 = document.getElementById('btn-replay2');
+
+
+            btn.addEventListener('click', function() {
+                page.style.display = 'none';
+                setTimeout(function() {
+                    gameOver = false;
+                    randomSetTool();
+                }, 800);
+            });
+
+            replay1.addEventListener('click', function() {
+                window.location.reload();
+            });
+
+            replay2.addEventListener('click', function() {
+                window.location.reload();
+            })
+        })();
+    </script>
+    <script type="text/javascript" src="./phaser.min.js"></script>
+    <script type="text/javascript" src="./main.min.js?v=3"></script>
+</body>
+</html>
